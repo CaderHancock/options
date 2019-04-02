@@ -75,11 +75,11 @@ public class driver{
 			   outputting it somewhere in terminal window. Notice that it doesn't take the current position of the text
 			   cursor when doing this.
 			 */
-			textGraphics.putString(2, 1, "Lanterna Tutorial 2 - Press ESC to exit", SGR.BOLD);
+			textGraphics.putString(2, 1, "Abby version 0.0.1", SGR.BOLD);
 			textGraphics.setForegroundColor(TextColor.ANSI.DEFAULT);
 			textGraphics.setBackgroundColor(TextColor.ANSI.DEFAULT);
-			textGraphics.putString(5, 3, "Terminal Size: ", SGR.BOLD);
-			textGraphics.putString(5 + "Terminal Size: ".length(), 3, terminal.getTerminalSize().toString());
+		//	textGraphics.putString(5, 3, "Terminal Size: ", SGR.BOLD);
+		//	textGraphics.putString(5 + "Terminal Size: ".length(), 3, terminal.getTerminalSize().toString());
 
 			/*
 			   You still need to flush for changes to become visible
@@ -111,17 +111,23 @@ public class driver{
 					}
 					});
 
-			textGraphics.putString(5, 4, "Last Keystroke: ", SGR.BOLD);
-			textGraphics.putString(5 + "Last Keystroke: ".length(), 4, "<Pending>");
+			textGraphics.putString(5, 4, "Search: ", SGR.BOLD);
+			textGraphics.putString(5 + "Search: ".length(), 4, "<Pending>"); 
+
 			terminal.flush();
 
 			KeyStroke keyStroke = terminal.readInput();
-			List<String> userInput = new ArrayList<String>();
+			//Stack<String> userInput = new Stack<String>();
 			String input = "";
+			YahooFinance f = new YahooFinance();
+			Stock searchRes;
 			while((keyStroke.getKeyType() != KeyType.Escape)) {
 				textGraphics.drawLine(5, 4, terminal.getTerminalSize().getColumns() - 1, 4, ' ');
 				if(keyStroke.getKeyType() == KeyType.Enter)
-				{ userInput.add(input.toString());
+				{ 
+					searchRes = f.get(input); 
+					textGraphics.putString(5, 6, "Name: " + searchRes.getName() + "                         ", SGR.BOLD);
+					//userInput.push(input.toString());
 					input = "";
 				}
 				else if(keyStroke.getKeyType() != KeyType.Backspace)
