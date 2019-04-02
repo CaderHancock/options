@@ -22,15 +22,15 @@ public class option{
 	private double mark, bid, ask, change, percentChange, volume, openInterest, delta, theta, gamma, vega, rho, iv, underlyingSpotPrice ;
 
 	/**
-	* @param incomingSymbol The OCC symbol for the options contract represented by this class
+	* @param s The OCC symbol for the options contract represented by this class
 	* @see <a href="https://en.wikipedia.org/wiki/Option_symbol">Options symbol</a>
 	*/
-	public option(String incomingSymbol){
-		contractSymbol = incomingSymbol; 
-		underlyingSymbol = incomingSymbol.substring(0,(incomingSymbol.length()-15));
+	public option(String s){
+		contractSymbol = s; 
+		underlyingSymbol = s.substring(0,(s.length()-15));
 
-		isCallOption = (contractSymbol.toUpperCase().charAt(contractSymbol.length()-9) == 'C');
-		strikePrice = Double.parseDouble(contractSymbol.substring(contractSymbol.length()-8)) / 1000 ;
+		isCallOption = (s.toUpperCase().charAt(s.length()-9) == 'C');
+		strikePrice = Double.parseDouble(s.substring(s.length()-8)) / 1000 ;
 		expiration = null; //fix this		
 	}
 
