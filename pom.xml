@@ -24,6 +24,12 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.googlecode.lanterna</groupId>
+        <artifactId>lanterna</artifactId>
+        <version>3.0.1</version>
     </dependency> 
 	
 	<!-- https://mvnrepository.com/artifact/com.yahoofinance-api/YahooFinanceAPI -->
