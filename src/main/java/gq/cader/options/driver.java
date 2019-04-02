@@ -35,15 +35,15 @@ public class driver{
 
 			terminal.setCursorVisible(true);
 
-					final TextGraphics textGraphics = terminal.newTextGraphics();
+			final TextGraphics textGraphics = terminal.newTextGraphics();
 
-					textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
+			textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
 			textGraphics.setBackgroundColor(TextColor.ANSI.BLACK);
-					textGraphics.putString(2, 1, "Abby version 0.0.1", SGR.BOLD);
+			textGraphics.putString(2, 1, "Abby version 0.1", SGR.BOLD);
 			textGraphics.setForegroundColor(TextColor.ANSI.DEFAULT);
 			textGraphics.setBackgroundColor(TextColor.ANSI.DEFAULT);
-		//	textGraphics.putString(5, 3, "Terminal Size: ", SGR.BOLD);
-		//	textGraphics.putString(5 + "Terminal Size: ".length(), 3, terminal.getTerminalSize().toString());
+			//	textGraphics.putString(5, 3, "Terminal Size: ", SGR.BOLD);
+			//	textGraphics.putString(5 + "Terminal Size: ".length(), 3, terminal.getTerminalSize().toString());
 
 			/*
 			   You still need to flush for changes to become visible
@@ -81,18 +81,19 @@ public class driver{
 			terminal.flush();
 
 			KeyStroke keyStroke = terminal.readInput();
-			//Stack<String> userInput = new Stack<String>();
 			String input = "";
 			YahooFinance f = new YahooFinance();
-			Stock searchRes;
+			Stock stock;
 			while((keyStroke.getKeyType() != KeyType.Escape)) {
 				textGraphics.drawLine(5, 4, terminal.getTerminalSize().getColumns() - 1, 4, ' ');
 				if(keyStroke.getKeyType() == KeyType.Enter)
 				{ 
-					searchRes = f.get(input);
-					if (searchRes.getName() != null) 
-					textGraphics.putString(5, 6, "Name: " + searchRes.getName() + "                         ", SGR.BOLD);
-					//userInput.push(input.toString());
+					stock = f.get(input);
+					if (stock.getName() != null){ 
+						textGraphics.putString(5, 6, "Name: " + stock.getName() + "                         ", SGR.BOLD);
+						textGraphics.putString(6, 7, "Price: $" + stock.getQuote().getPrice().toString());
+						textGraphics.putString(6,8, "Bid: $" + stock.getQuote().getBid().toString() +"x"+stock.getQuote().getBidSize().toString() + "    Ask: $" + stock.getQuote().getAsk().toString()+"x"+stock.getQuote().getAskSize().toString());
+					}
 					input = "";
 				}
 				else if(keyStroke.getKeyType() != KeyType.Backspace)
