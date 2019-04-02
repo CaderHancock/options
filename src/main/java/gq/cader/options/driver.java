@@ -2,40 +2,48 @@
 package gq.cader.options;
 import java.math.*;
 import yahoofinance.*; 
+import lanterna.*;
+import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class driver{
+    public static void main(String[] args) throws IOException {
+        // Setup terminal and screen layers
+        Terminal terminal = new DefaultTerminalFactory().createTerminal();
+        Screen screen = new TerminalScreen(terminal);
+        screen.startScreen();
 
-	public static void main(String[] args) throws java.io.IOException, java.lang.InterruptedException{
+        // Create panel to hold components
+        Panel panel = new Panel();
+        panel.setLayoutManager(new GridLayout(2));
 
-		//ghetto test to see if arg[0] is an option symbol else if arg[0] is an equity symbol or no args
-		if (args.length == 1 && args[0].length() > 6){	
-			option o = new option(args[0]);
-			System.out.println(o.underlyingSymbol);
-			System.out.println(o.strikePrice);
-			//	String s = "SPY190401C00271000";
-			System.out.println(o.expiration);	
-			System.out.println("Is Call Option:" + o.isCallOption);
+        final Label lblOutput = new Label("");
 
-		}
-		if (args.length == 1 && args[0].length() < 6){
-			YahooFinance f = new YahooFinance();
-			while(true){
+        panel.addComponent(new Label("Num 1"));
+        final TextBox txtNum1 = new TextBox().setValidationPattern(Pattern.compile("[0-9]*")).addTo(panel);
 
-				Stock stock = f.get(args[0]);
-				BigDecimal price = stock.getQuote().getPrice();
-				BigDecimal change = stock.getQuote().getChangeInPercent();
-				BigDecimal peg = stock.getStats().getPeg();
-				BigDecimal dividend = stock.getDividend().getAnnualYieldPercent();
-				stock.print();
-				Thread.sleep(1000);
-				clearScreen();
-			}
-		}
+        panel.addComponent(new Label("Num 2"));
+        final TextBox txtNum2 = new TextBox().setValidationPattern(Pattern.compile("[0-9]*")).addTo(panel);
 
-	}
-	public static void clearScreen() {  
-		System.out.print("\033[H\033[2J");  
-		System.out.flush();  
-	} 
+        panel.addComponent(new EmptySpace(new TerminalSize(0, 0)));
+        new Button("Add!", new Runnable() {
+            @Override
+            public void run() {
+                int num1 = Integer.parseInt(txtNum1.getText());
+                int num2 = Integer.parseInt(txtNum2.getText());
+                lblOutput.setText(Integer.toString(num1 + num2));
+            }
+        }).addTo(panel);
 
+        panel.addComponent(new EmptySpace(new TerminalSize(0, 0)));
+        panel.addComponent(lblOutput);
+
+        // Create window to hold the panel
+        BasicWindow window = new BasicWindow();
+        window.setComponent(panel);
+
+        // Create gui and start gui
+        MultiWindowTextGUI gui = new MultiWindowTextGUI(screen, new DefaultWindowManager(), new EmptySpace(TextColor.ANSI.BLUE));
+        gui.addWindowAndWait(window);
+    }
 }
