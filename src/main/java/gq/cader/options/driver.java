@@ -1,4 +1,4 @@
-import gq.cader.options.*;
+package gq.cader.options;
 
 public class driver{
 
