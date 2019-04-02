@@ -19,7 +19,7 @@ import java.io.IOException;
  * @author Martin
  */
 public class driver{
-	public static void main(String[] args) {
+	public static void main(String[] args)throws java.lang.InterruptedException {
 		/*
 		   In this second tutorial, we'll expand on how to use the Terminal interface to provide more advanced
 		   functionality.
@@ -33,7 +33,7 @@ public class driver{
 
 			terminal.clearScreen();
 
-			terminal.setCursorVisible(true);
+			terminal.setCursorVisible(false);
 
 			final TextGraphics textGraphics = terminal.newTextGraphics();
 
@@ -81,7 +81,7 @@ public class driver{
 			terminal.flush();
 
 			List<Stock> stocks = new ArrayList<Stock>();
-			List<String> namesInstocks = new ArrayList<Stock>();
+			List<String> namesInStocks = new ArrayList<String>();
 			KeyStroke keyStroke = terminal.readInput();
 			String input = "";
 			YahooFinance finance = new YahooFinance();
@@ -89,25 +89,30 @@ public class driver{
 			while((keyStroke.getKeyType() != KeyType.Escape)) {
 				textGraphics.drawLine(5, 4, terminal.getTerminalSize().getColumns() - 1, 4, ' ');
 				if(keyStroke.getKeyType() == KeyType.Enter)
-				{ 
+				{
+				if (!input.equalsIgnoreCase("CLEAR")){ 
 					stock = finance.get(input);
 					if (stock.getName() != null && !(namesInStocks.contains(stock.getName()))){
 
 						stocks.add(stock);
 						namesInStocks.add(stock.getName());
-					}	
-
+					}
+					}else{
+						stocks = new ArrayList<Stock>();	
+						namesInStocks = new ArrayList<String>();
+					}
 					input = "";
 				}
 				else if(keyStroke.getKeyType() != KeyType.Backspace)
 					input = input.concat(Character.toString(keyStroke.getCharacter()));
-				else if(keyStroke.getKeyType() == KeyType.Backspace)
+				else if(keyStroke.getKeyType() == KeyType.Backspace && input.length()>=1)
 					input = input.substring(0 , input.length()-1);
 
 				textGraphics.putString(5, 4, "Search: ", SGR.BOLD);
 				textGraphics.putString(5 + "Search: ".length(), 4, input);
 				printStocks(5,6, stocks, textGraphics);
 				terminal.flush();
+				Thread.sleep(100);
 				keyStroke = terminal.readInput();
 			}
 
@@ -129,11 +134,11 @@ public class driver{
 			}
 		}
 	}
-	private void printStocks(int x, int y, List<Stock> stocks, TextGraphics textGraphics){
+	private static void printStocks(int x, int y, List<Stock> stocks, TextGraphics textGraphics){
 		for(int i =0; i<stocks.size(); i++){
-			textGraphics.putString(x, y, "Name: " + stock.getName() + "                         ", SGR.BOLD);
-			textGraphics.putString(x + 1, y + 1, "Price: $" + stock.getQuote().getPrice().toString());
-			textGraphics.putString(x + 1, y + 2, "Bid: $" + stock.getQuote().getBid().toString() +"x"+stock.getQuote().getBidSize().toString() + "    Ask: $" + stock.getQuote().getAsk().toString()+"x"+stock.getQuote().getAskSize().toString()+"                         " );
+			textGraphics.putString(x, y, "Name: " + stocks.get(i).getName() + "                         ", SGR.BOLD);
+			textGraphics.putString(x + 1, y + 1, "Price: $" + stocks.get(i).getQuote().getPrice().toString());
+			textGraphics.putString(x + 1, y + 2, "Bid: $" + stocks.get(i).getQuote().getBid().toString() +"x"+stocks.get(i).getQuote().getBidSize().toString() + "    Ask: $" + stocks.get(i).getQuote().getAsk().toString()+"x"+stocks.get(i).getQuote().getAskSize().toString()+"                         " );
 			y+=3;
 		}
 	}
