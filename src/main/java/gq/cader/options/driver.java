@@ -80,29 +80,33 @@ public class driver{
 
 			terminal.flush();
 
+			List<Stock> stocks = new ArrayList<Stock>();
+			List<String> namesInstocks = new ArrayList<Stock>();
 			KeyStroke keyStroke = terminal.readInput();
 			String input = "";
-			YahooFinance f = new YahooFinance();
+			YahooFinance finance = new YahooFinance();
 			Stock stock;
 			while((keyStroke.getKeyType() != KeyType.Escape)) {
 				textGraphics.drawLine(5, 4, terminal.getTerminalSize().getColumns() - 1, 4, ' ');
 				if(keyStroke.getKeyType() == KeyType.Enter)
 				{ 
-					stock = f.get(input);
-					if (stock.getName() != null){ 
-						textGraphics.putString(5, 6, "Name: " + stock.getName() + "                         ", SGR.BOLD);
-						textGraphics.putString(6, 7, "Price: $" + stock.getQuote().getPrice().toString());
-						textGraphics.putString(6,8, "Bid: $" + stock.getQuote().getBid().toString() +"x"+stock.getQuote().getBidSize().toString() + "    Ask: $" + stock.getQuote().getAsk().toString()+"x"+stock.getQuote().getAskSize().toString());
-					}
+					stock = finance.get(input);
+					if (stock.getName() != null && !(namesInStocks.contains(stock.getName()))){
+
+						stocks.add(stock);
+						namesInStocks.add(stock.getName());
+					}	
+
 					input = "";
 				}
 				else if(keyStroke.getKeyType() != KeyType.Backspace)
 					input = input.concat(Character.toString(keyStroke.getCharacter()));
-				else
+				else if(keyStroke.getKeyType() == KeyType.Backspace)
 					input = input.substring(0 , input.length()-1);
 
 				textGraphics.putString(5, 4, "Search: ", SGR.BOLD);
 				textGraphics.putString(5 + "Search: ".length(), 4, input);
+				printStocks(5,6, stocks, textGraphics);
 				terminal.flush();
 				keyStroke = terminal.readInput();
 			}
@@ -123,6 +127,14 @@ public class driver{
 					e.printStackTrace();
 				}
 			}
+		}
+	}
+	private void printStocks(int x, int y, List<Stock> stocks, TextGraphics textGraphics){
+		for(int i =0; i<stocks.size(); i++){
+			textGraphics.putString(x, y, "Name: " + stock.getName() + "                         ", SGR.BOLD);
+			textGraphics.putString(x + 1, y + 1, "Price: $" + stock.getQuote().getPrice().toString());
+			textGraphics.putString(x + 1, y + 2, "Bid: $" + stock.getQuote().getBid().toString() +"x"+stock.getQuote().getBidSize().toString() + "    Ask: $" + stock.getQuote().getAsk().toString()+"x"+stock.getQuote().getAskSize().toString()+"                         " );
+			y+=3;
 		}
 	}
 }
