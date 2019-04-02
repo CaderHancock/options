@@ -7,7 +7,7 @@
 *"              " calculate greeks and IV
 *"              " get values
 **/
-package options;
+package gq.cader.options;
 import java.util.*;
 
 
@@ -16,7 +16,7 @@ public class option{
 	public final String contractSymbol, underlyingSymbol;
 	public final double strikePrice;
 	public final boolean isCallOption;
-	public final Date expiration;
+	public final String expiration;
 
 	//All these values are constantly changing and must only be accessed via methods	
 	private double mark, bid, ask, change, percentChange, volume, openInterest, delta, theta, gamma, vega, rho, iv, underlyingSpotPrice ;
@@ -31,7 +31,8 @@ public class option{
 
 		isCallOption = (s.toUpperCase().charAt(s.length()-9) == 'C');
 		strikePrice = Double.parseDouble(s.substring(s.length()-8)) / 1000 ;
-		expiration = null; //fix this		
+		StringBuilder sb = new StringBuilder(s.substring((s.length()-15), (s.length()-9)));	
+		expiration = sb.insert(0,"20").insert(4," ").insert(7, " ").toString();
 	}
 
 	/** @return  3 element array of type double containing the contract's bid, ask, and mark prices */

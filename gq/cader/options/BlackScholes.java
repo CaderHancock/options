@@ -4,7 +4,7 @@ Calculator class to implement the Black–Scholes model
 
 */
 
-package options;
+package gq.cader.options;
 
 import java.lang.Math;
 

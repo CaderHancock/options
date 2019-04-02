@@ -1,4 +1,4 @@
-import options.*;
+import gq.cader.options.*;
 
 public class driver{
 
@@ -7,7 +7,7 @@ public static void main(String[] args){
 	System.out.println(o.underlyingSymbol);
 	System.out.println(o.strikePrice);
 	//	String s = "SPY190401C00271000";
-	//	System.out.println(s.substring(0, (s.length()-15)));	
-	//	System.out.println(s.charAt(s.length()-9));
+		System.out.println(o.expiration);	
+		System.out.println("Is Call Option:" + o.isCallOption);
 	}
 }
