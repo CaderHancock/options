@@ -29,53 +29,17 @@ public class driver{
 		try {
 			terminal = defaultTerminalFactory.createTerminal();
 
-			/*
-			   Most terminals and terminal emulators supports what's known as "private mode" which is a separate buffer for
-			   the text content that does not support any scrolling. This is frequently used by text editors such as nano
-			   and vi in order to give a "fullscreen" view. When exiting from private mode, the previous content is usually
-			   restored, including the scrollback history. Emulators that don't support this properly might at least clear
-			   the screen after exiting.
-
-			   You can use the enterPrivateMode() to activate private mode, but you'll need to remember to also exit
-			   private mode afterwards so that you don't leave the terminal in a weird state when the application exists.
-			   The usual close() at the end will do this automatically, but you can also manually call exitPrivateMode()
-			   and finally Lanterna will register a shutdown hook that tries to restore the terminal (including exiting
-			   private mode, if necessary) as well.
-			 */
 			terminal.enterPrivateMode();
 
-			/*
-			   The terminal content should already be cleared after switching to private mode, but in case it's not, the
-			   clear method should make all content set to default background color with no characters and the input cursor
-			   in the top-left corner.
-			 */
 			terminal.clearScreen();
 
-			/*
-			   It's possible to tell the terminal to hide the text input cursor
-			 */
-			terminal.setCursorVisible(false);
+			terminal.setCursorVisible(true);
 
-			/*
-			   Instead of manually writing one character at a time like we did in the previous tutorial, an easier way is
-			   to use a TextGraphic object. You'll see more of this object later on, it's reused on the Screen and TextGUI
-			   layers too.
-			 */
-			final TextGraphics textGraphics = terminal.newTextGraphics();
+					final TextGraphics textGraphics = terminal.newTextGraphics();
 
-			/*
-			   The TextGraphics object keeps its own state of the current colors, separate from the terminal. You can use
-			   the foreground and background set methods to specify it and it will take effect on all operations until
-			   further modified.
-			 */
-			textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
+					textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
 			textGraphics.setBackgroundColor(TextColor.ANSI.BLACK);
-			/*
-			   putString(..) exists in a couple of different flavors but it generally works by taking a string and
-			   outputting it somewhere in terminal window. Notice that it doesn't take the current position of the text
-			   cursor when doing this.
-			 */
-			textGraphics.putString(2, 1, "Abby version 0.0.1", SGR.BOLD);
+					textGraphics.putString(2, 1, "Abby version 0.0.1", SGR.BOLD);
 			textGraphics.setForegroundColor(TextColor.ANSI.DEFAULT);
 			textGraphics.setBackgroundColor(TextColor.ANSI.DEFAULT);
 		//	textGraphics.putString(5, 3, "Terminal Size: ", SGR.BOLD);
@@ -125,7 +89,8 @@ public class driver{
 				textGraphics.drawLine(5, 4, terminal.getTerminalSize().getColumns() - 1, 4, ' ');
 				if(keyStroke.getKeyType() == KeyType.Enter)
 				{ 
-					searchRes = f.get(input); 
+					searchRes = f.get(input);
+					if (searchRes.getName() != null) 
 					textGraphics.putString(5, 6, "Name: " + searchRes.getName() + "                         ", SGR.BOLD);
 					//userInput.push(input.toString());
 					input = "";
