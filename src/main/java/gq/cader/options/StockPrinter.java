@@ -20,7 +20,7 @@ class StockPrinter implements Runnable
 		stocks = st;
 		terminal = t;
 	}
-	public void run() throws java.lang.InterruptedException
+	public void run() 
 	{
 		//@override
 
