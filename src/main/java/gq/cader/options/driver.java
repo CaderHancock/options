@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class driver{
 	public static void main(String[] args)throws java.lang.InterruptedException {
-		
+
 		DefaultTerminalFactory defaultTerminalFactory = new DefaultTerminalFactory();
 		Terminal terminal = null;
 		try {
@@ -36,11 +36,11 @@ public class driver{
 			textGraphics.putString(2, 1, "Abby version 0.1", SGR.BOLD);
 			textGraphics.setForegroundColor(TextColor.ANSI.DEFAULT);
 			textGraphics.setBackgroundColor(TextColor.ANSI.DEFAULT);
-		
+
 
 			terminal.flush();
 
-			
+
 
 			textGraphics.putString(5, 4, "Search: ", SGR.BOLD);
 			textGraphics.putString(5 + "Search: ".length(), 4, "<Pending>"); 
@@ -58,13 +58,13 @@ public class driver{
 				textGraphics.drawLine(5, 4, terminal.getTerminalSize().getColumns() - 1, 4, ' ');
 				if(keyStroke.getKeyType() == KeyType.Enter)
 				{
-				if (!input.equalsIgnoreCase("CLEAR")){ 
-					stock = finance.get(input);
-					if (stock.getName() != null && !(namesInStocks.contains(stock.getName()))){
+					if (!input.equalsIgnoreCase("CLEAR")){ 
+						stock = finance.get(input);
+						if (stock.getName() != null && !(namesInStocks.contains(stock.getName()))){
 
-						stocks.add(stock);
-						namesInStocks.add(stock.getName());
-					}
+							stocks.add(stock);
+							namesInStocks.add(stock.getName());
+						}
 					}else{
 						stocks = new ArrayList<Stock>();	
 						namesInStocks = new ArrayList<String>();
@@ -80,10 +80,14 @@ public class driver{
 				textGraphics.putString(5 + "Search: ".length(), 4, input);
 				//printStocks(5,6, stocks, textGraphics);
 				//stockPrinter = new StockPrinter(5,6,textGraphics,stocks,terminal);
-				stockPrinterThread = new Thread(new StockPrinter(5,6,textGraphics,stocks,terminal));
+				try{
+					stockPrinterThread = new Thread(new StockPrinter(5,6,textGraphics,stocks,terminal));
+					stockPrinterThread.run();   
+				}catch (Exception e)
+				{}
 				terminal.flush();
 				keyStroke = terminal.readInput();
-			//	stockPrinterThread.interrupt();
+				//	stockPrinterThread.interrupt();
 			}
 
 		}
@@ -113,3 +117,4 @@ public class driver{
 		}
 	}
 }
+
