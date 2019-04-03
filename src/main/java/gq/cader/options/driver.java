@@ -15,9 +15,8 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.screen.*;
 import java.io.IOException;
 
-public class driver
-{
-	public static void main(String[] args)
+public class driver {
+	public static void main(String[] args)throws java.io.IOException
 	{
 		boolean itsPartyTime = true;
 		Screen screen = new DefaultTerminalFactory().createScreen();

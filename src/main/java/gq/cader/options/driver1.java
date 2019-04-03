@@ -15,7 +15,7 @@ import com.googlecode.lanterna.terminal.TerminalResizeListener;
 import java.io.IOException;
 
 
-public class driver{
+public class driver1{
 	public static void main(String[] args)throws java.lang.InterruptedException {
 
 		DefaultTerminalFactory defaultTerminalFactory = new DefaultTerminalFactory();
