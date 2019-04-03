@@ -22,16 +22,17 @@ class StockPrinter implements Runnable
 	}
 	public void run() throws java.lang.InterruptedException
 	{
-		while(true)
-		{
-			for(int i =0; i<stocks.size(); i++){
-                        textGraphics.putString(x, y, "Name: " + stocks.get(i).getName() + "                         ", SGR.BOLD);
-                        textGraphics.putString(x + 1, y + 1, "Price: $" + stocks.get(i).getQuote().getPrice().toString());
-                        textGraphics.putString(x + 1, y + 2, "Bid: $" + stocks.get(i).getQuote().getBid().toString() +"x"+stocks.get(i).getQuote().getBidSize().toString() + "    Ask: $" + stocks.get(i).getQuote().getAsk().toString()+"x"+stocks.get(i).getQuote().getAskSize().toString()+"                         " );
-                        y+=3;
+		//@override
+
+		while(true){
+			for(int i = 0; i < stocks.size(); i++){
+                        //textGraphics.putString(x, y, "Name: " + stocks.get(i).getName() + "                         ", SGR.BOLD);
+                        //textGraphics.putString(x + 1, y + 1, "Price: $" + stocks.get(i).getQuote().getPrice().toString());
+                        //textGraphics.putString(x + 1, y + 2, "Bid: $" + stocks.get(i).getQuote().getBid().toString() +"x"+stocks.get(i).getQuote().getBidSize().toString() + "    Ask: $" + stocks.get(i).getQuote().getAsk().toString()+"x"+stocks.get(i).getQuote().getAskSize().toString()+"                         " );
+                      //  y+=3;
                 }
-		terminal.flush();
-		Thread.sleep(100);
+		//terminal.flush();
+		//Thread.sleep(100);
 			
 		}	
 	}

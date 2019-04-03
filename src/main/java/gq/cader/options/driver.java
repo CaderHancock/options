@@ -112,8 +112,8 @@ public class driver{
 				textGraphics.putString(5, 4, "Search: ", SGR.BOLD);
 				textGraphics.putString(5 + "Search: ".length(), 4, input);
 				//printStocks(5,6, stocks, textGraphics);
-				stockPrinter = new StockPrinter(5,6,textGraphics,stocks,terminal);
-				stockPrinterThread = new Thread(stockPrinter).start();
+				//stockPrinter = new StockPrinter(5,6,textGraphics,stocks,terminal);
+				stockPrinterThread = new Thread(new StockPrinter(5,6,textGraphics,stocks,terminal)).start();
 				terminal.flush();
 				keyStroke = terminal.readInput();
 				stockPrinterThread.interrupt();
