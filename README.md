@@ -14,4 +14,4 @@ cd options/
 
 mvn assembly:assembly
 
-java -jar target/options-0.1-jar-with-dependencies.jar amd190401C00271000 //the passed argument here is a sample
+java -jar target/options-0.1-jar-with-dependencies.jar
