@@ -54,7 +54,7 @@ public class driver {
 				screen.refresh();
 		
 	}
-	private static void drawFunctionsColumn(TextGraphics textGraphics, Screen screen,  int columns, int rows )throws java.io.IOException
+	private static void drawFunctionsColumn(List<Function> functions, TextGraphics textGraphics, Screen screen,  int columns, int rows )throws java.io.IOException
 	{
 		
 	}

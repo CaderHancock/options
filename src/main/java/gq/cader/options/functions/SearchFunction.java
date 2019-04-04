@@ -15,13 +15,21 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.TerminalPosition;
 
-interface function
+class SearchFunction implements Function
 {
-	String name = null;
+	public SearchFunction()
+	{
+	String name = "Search";
 	TerminalPosition functionBarPosition = null;
 	TerminalSize terminalSize = null;
 	Screen screen = null;
-	public void drawInfoScreen();
-	public void run();
-
+	}
+	public void drawInfoScreen()
+	{}
+	public void run()
+	{}
+	public String getName()
+	{	
+		return name;
+	}
 }
