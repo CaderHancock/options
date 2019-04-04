@@ -26,7 +26,10 @@ public class driver {
 		TerminalSize terminalSize = screen.getTerminalSize();
 		int columns = terminalSize.getColumns();
 		int rows    = terminalSize.getRows();
-
+		textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
+		textGraphics.setBackgroundColor(TextColor.ANSI.BLACK);
+		textGraphics.fill(' ');
+		screen.refresh();
 		//Begin Draw LOOP
 		while(itsPartyTime)
 		{
@@ -39,15 +42,22 @@ public class driver {
 
 			}
 		//Draw Header
-			drawHeader(textGraphics,columns,rows);
-					} 
+			drawHeader(textGraphics,screen, columns,rows);
+//			drawFunctionsColumn();
+		} 
 	}
 
-	private static void drawHeader(TextGraphics textGraphics, int columns, int rows )
+	private static void drawHeader(TextGraphics textGraphics, Screen screen,  int columns, int rows )throws java.io.IOException
 	{
-		textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
-		textGraphics.setBackgroundColor(TextColor.ANSI.WHITE);
-		textGraphics.putString(3,1, "ABBY 0.1.1" );
+				textGraphics.putString(3,1, "ABBY 0.1.1" );
+				textGraphics.drawLine(0,2,columns,2,'_' ); 
+				screen.refresh();
+		
 	}
+	private static void drawFunctionsColumn(TextGraphics textGraphics, Screen screen,  int columns, int rows )throws java.io.IOException
+	{
+		
+	}
+
 
 }
