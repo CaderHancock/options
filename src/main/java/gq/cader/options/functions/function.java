@@ -20,6 +20,7 @@ interface Function
 	//class Function(String s, TerminalPosition tp, TerminalSize ts, Screen sc);
 	
 	String name = null;
+	final TerminalPosition infoScreenTopLeft = new TerminalPosition(12,5);
 	TerminalPosition functionBarPosition = null;
 	TerminalSize terminalSize = null;
 	Screen screen = null;

@@ -14,24 +14,20 @@ import com.googlecode.lanterna.terminal.TerminalResizeListener;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.TerminalPosition;
-
-class SearchFunction implements Function
+public class MultiLinePrinter
 {
-	public SearchFunction(String query, Screen s, TerminalPosition tp)
+	public MultiLinePrinter(List<String> lines, Screen screen, TerminalPosition startPos)
 	{
-	YahooFinance f = new YahooFinance();
-	Stock result = f.get(query);
-	String name = "Search";
-	TerminalPosition functionBarPosition = tp;
-	Screen screen = s; 
-	TerminalSize terminalSize = screen.getTerminalSize();
-	}
-	public void drawInfoScreen()
-	{}
-	public void run()
-	{}
-	public String getName()
-	{	
-		return name;
+		TextGraphics tg = screen.newTextGraphics();
+		TerminalPosition workingPos = startPos.clone();
+		for (int i = 0; i < lines.length(), i++)
+		{
+			tg.putString(lines.get(i), workingPos)
+			workingPos = workingPos.withRelativeRow(1);
+		}	
+
+
+
+		screen.refresh();	
 	}
 }
