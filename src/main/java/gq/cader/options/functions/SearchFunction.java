@@ -17,18 +17,19 @@ import com.googlecode.lanterna.TerminalPosition;
 
 class SearchFunction implements Function
 {
-	public SearchFunction(String query, Screen s, TerminalPosition tp)
+	public SearchFunction(String q, Screen s,TerminalPosition tp)
 	{
+	String query = q;
+	String name = "Search";
 	YahooFinance f = new YahooFinance();
 	Stock result = f.get(query);
-	String name = "Search";
 	TerminalPosition functionBarPosition = tp;
-	Screen screen = s; 
+	Screen screen = s;
 	TerminalSize terminalSize = screen.getTerminalSize();
 	}
-	public void drawInfoScreen()
+	public void drawInfoScreen( )
 	{}
-	public void run()
+	public run()
 	{}
 	public String getName()
 	{	
