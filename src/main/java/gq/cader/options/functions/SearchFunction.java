@@ -46,12 +46,11 @@ class SearchFunction implements Function {
 	{
 		List<String> lineBuffer = new ArrayList<String>();
 		StockQuote q = stock.getQuote();
-		lineBuffer.add(stock.getName()); 		
-		lineBuffer.add("     $"+ q.getPrice()+" (" + q.getChange() + ") ("+ q.getChangeInPercent() + "%)     " );
-		lineBuffer.add(" Bid:$" + q.getBid() + "x"+q.getBidSize()+"     Ask:$"+q.getAsk()+"x"+q.getAskSize() );
-//		lineBuffer.add();
-//		lineBuffer.add();
-//		lineBuffer.add();
+		lineBuffer.add(stock.getName() + "   " + q.getPrice()+" (" + q.getChange() + ") ("+ q.getChangeInPercent() + "%)     " );
+//		lineBuffer.add(" Bid:$" + q.getBid() + "x"+q.getBidSize()+"     Ask:$"+q.getAsk()+"x"+q.getAskSize() );
+		lineBuffer.add(q.toString());
+		lineBuffer.add(stock.getStats().toString());
+		lineBuffer.add(stock.getDividend().toString());
 		new MultiLinePrinter(lineBuffer, screen, infoScreenTopLeft);
 	}
 }
