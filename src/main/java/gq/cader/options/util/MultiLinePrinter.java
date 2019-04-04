@@ -20,9 +20,9 @@ public class MultiLinePrinter
 	{
 		TextGraphics tg = screen.newTextGraphics();
 		TerminalPosition workingPos = startPos.clone();
-		for (int i = 0; i < lines.length(), i++)
+		for (int i = 0; i < lines.length(); i++)
 		{
-			tg.putString(lines.get(i), workingPos)
+			tg.putString(lines.get(i), workingPos);
 			workingPos = workingPos.withRelativeRow(1);
 		}	
 

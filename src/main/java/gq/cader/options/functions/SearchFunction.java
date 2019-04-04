@@ -26,13 +26,30 @@ class SearchFunction implements Function
 	TerminalPosition functionBarPosition = tp;
 	Screen screen = s;
 	TerminalSize terminalSize = screen.getTerminalSize();
+
 	}
 	public void drawInfoScreen( )
-	{}
-	public run()
-	{}
+	{
+	
+	}
+	public boolean run()
+	{
+		return true;
+	}
 	public String getName()
 	{	
 		return name;
+	}
+	private void printStockStat(Stock stock, Screen screen)
+	{
+		List<String> lineBuffer = new ArrayList<String>();
+	
+		lineBuffer.add(stock.getName() +"     "+ stock.getQuote().getPrice().toPlainString()+" (" + stock.getQuote().getChange().toPlainString() );
+		lineBuffer.add("");
+		lineBuffer.add("");
+		lineBuffer.add();
+		lineBuffer.add();
+		lineBuffer.add();
+		new MultiLinePrinter(lineBuffer, screen, infoScreenTopLeft);
 	}
 }
