@@ -43,7 +43,7 @@ public class driver {
 			}
 		//Draw Header
 			drawHeader(textGraphics,screen, columns,rows);
-			new SearchFunction("googl", screen, Function.infoScreenTopLeft).printStockStat(f.get("googl"),screen);
+			new SearchFunction("goog", screen, Function.infoScreenTopLeft).printStockStat(f.get("goog"),screen);
 		} 
 	}
 

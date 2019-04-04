@@ -1,6 +1,7 @@
 package gq.cader.options;
 
 import yahoofinance.*;
+import yahoofinance.quotes.stock.StockQuote;
 import java.util.*;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalSize;
@@ -44,10 +45,10 @@ class SearchFunction implements Function {
 
 	{
 		List<String> lineBuffer = new ArrayList<String>();
-	
-		lineBuffer.add(stock.getName() +"     "+ stock.getQuote().getPrice().toPlainString()+" (" + stock.getQuote().getChange().toPlainString() + ")" );
-		lineBuffer.add("");
-		lineBuffer.add("");
+		StockQuote q = stock.getQuote();
+		lineBuffer.add(stock.getName()); 		
+		lineBuffer.add("     $"+ q.getPrice()+" (" + q.getChange() + ") ("+ q.getChangeInPercent() + "%)     " );
+		lineBuffer.add(" Bid:$" + q.getBid() + "x"+q.getBidSize()+"     Ask:$"+q.getAsk()+"x"+q.getAskSize() );
 //		lineBuffer.add();
 //		lineBuffer.add();
 //		lineBuffer.add();
