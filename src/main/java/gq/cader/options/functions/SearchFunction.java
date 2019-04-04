@@ -15,33 +15,39 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.TerminalPosition;
 
-class SearchFunction implements Function {
-	public SearchFunction(String q, Screen s,TerminalPosition tp)throws java.io.IOException
+class SearchFunction extends Function {
+	public SearchFunction(Screen s,String... args)throws java.io.IOException
 
 	{
-	String query = q;
+	String query = args[0];
 	String name = "Search";
 	YahooFinance f = new YahooFinance();
 	Stock result = f.get(query);
-	TerminalPosition functionBarPosition = tp;
+	TerminalPosition functionBarPosition = new TerminalPosition(0,5);
 	Screen screen = s;
 	TerminalSize terminalSize = screen.getTerminalSize();
-
+	printStockStat(result, screen);
 	}
-	public void drawInfoScreen( )
-	{
 	
-	}
-	public boolean run()
+	private void drawInfoScreen()throws java.io.IOException
 	{
+	//		printStockStat(result, screen);
+	}
+
+	public boolean run()throws java.io.IOException
+	{
+	//	if(result != null)
+	//	{
+	//		drawInfoScreen();
 		return true;
+	//	}else 
+	//		return false;
 	}
 	public String getName()
 	{	
 		return name;
 	}
 	public void printStockStat(Stock stock, Screen screen)throws java.io.IOException
-
 	{
 		List<String> lineBuffer = new ArrayList<String>();
 	

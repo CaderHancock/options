@@ -15,16 +15,19 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.TerminalPosition;
 
-interface Function
+abstract class Function
 {
-	//class Function(String s, TerminalPosition tp, TerminalSize ts, Screen sc);
+//	abstract Function(Screen s, String... args);
 	
 	String name = null;
 	public final TerminalPosition infoScreenTopLeft = new TerminalPosition(12,5);
 	TerminalPosition functionBarPosition = null;
-	TerminalSize terminalSize = null;
 	Screen screen = null;
-	public void drawInfoScreen();
-	public boolean run();
-	public String getName();
+	TerminalSize terminalSize = screen.getTerminalSize();
+//	abstract void drawInfoScreen()throws java.io.IOException;
+//	abstract boolean run()throws java.io.IOException;
+	public String getName()
+	{
+		return name;
+	}
 }

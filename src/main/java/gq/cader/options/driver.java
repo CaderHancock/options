@@ -30,6 +30,9 @@ public class driver {
 		textGraphics.setBackgroundColor(TextColor.ANSI.BLACK);
 		textGraphics.fill(' ');
 		screen.refresh();
+		drawHeader(textGraphics,screen, columns,rows);
+		//List<Function> functions = initializeFunctionBar(screen);
+		KeyStroke keyStroke = screen.pollInput();
 		//Begin Draw LOOP
 		while(itsPartyTime)
 		{
@@ -42,8 +45,9 @@ public class driver {
 
 			}
 		//Draw Header
-			drawHeader(textGraphics,screen, columns,rows);
-			new SearchFunction("googl", screen, Function.infoScreenTopLeft).printStockStat(f.get("googl"),screen);
+			new SearchFunction(screen, "googl");
+//			if(keyStroke.getKeyType()  == KeyType.Escape)
+//				itsPartyTime = false;
 		} 
 	}
 
@@ -54,6 +58,9 @@ public class driver {
 				screen.refresh();
 		
 	}
-
-
+/*	private static List<Function> initializeFunctionBar(Screen screen )
+	{
+	//	List<Function> ofTheJedi = new ArrayList
+	}
+*/
 }
