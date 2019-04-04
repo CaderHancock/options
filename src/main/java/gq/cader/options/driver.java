@@ -21,7 +21,7 @@ public class driver {
 		boolean itsPartyTime = true;
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
-		
+		YahooFinance f = new YahooFinance();
 		TextGraphics textGraphics = screen.newTextGraphics();
 		TerminalSize terminalSize = screen.getTerminalSize();
 		int columns = terminalSize.getColumns();
@@ -43,7 +43,7 @@ public class driver {
 			}
 		//Draw Header
 			drawHeader(textGraphics,screen, columns,rows);
-//			drawFunctionsColumn();
+			new SearchFunction("googl", screen, Function.infoScreenTopLeft).printStockStat(f.get("googl"),screen);
 		} 
 	}
 
@@ -52,10 +52,6 @@ public class driver {
 				textGraphics.putString(3,1, "ABBY 0.1.1" );
 				textGraphics.drawLine(0,2,columns,2,'_' ); 
 				screen.refresh();
-		
-	}
-	private static void drawFunctionsColumn(List<Function> functions, TextGraphics textGraphics, Screen screen,  int columns, int rows )throws java.io.IOException
-	{
 		
 	}
 

@@ -20,11 +20,11 @@ interface Function
 	//class Function(String s, TerminalPosition tp, TerminalSize ts, Screen sc);
 	
 	String name = null;
-	final TerminalPosition infoScreenTopLeft = new TerminalPosition(12,5);
+	public final TerminalPosition infoScreenTopLeft = new TerminalPosition(12,5);
 	TerminalPosition functionBarPosition = null;
 	TerminalSize terminalSize = null;
 	Screen screen = null;
 	public void drawInfoScreen();
-	public void run();
+	public boolean run();
 	public String getName();
 }

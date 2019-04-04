@@ -15,9 +15,9 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.TerminalPosition;
 
-class SearchFunction implements Function
-{
-	public SearchFunction(String q, Screen s,TerminalPosition tp)
+class SearchFunction implements Function {
+	public SearchFunction(String q, Screen s,TerminalPosition tp)throws java.io.IOException
+
 	{
 	String query = q;
 	String name = "Search";
@@ -40,16 +40,17 @@ class SearchFunction implements Function
 	{	
 		return name;
 	}
-	private void printStockStat(Stock stock, Screen screen)
+	public void printStockStat(Stock stock, Screen screen)throws java.io.IOException
+
 	{
 		List<String> lineBuffer = new ArrayList<String>();
 	
-		lineBuffer.add(stock.getName() +"     "+ stock.getQuote().getPrice().toPlainString()+" (" + stock.getQuote().getChange().toPlainString() );
+		lineBuffer.add(stock.getName() +"     "+ stock.getQuote().getPrice().toPlainString()+" (" + stock.getQuote().getChange().toPlainString() + ")" );
 		lineBuffer.add("");
 		lineBuffer.add("");
-		lineBuffer.add();
-		lineBuffer.add();
-		lineBuffer.add();
+//		lineBuffer.add();
+//		lineBuffer.add();
+//		lineBuffer.add();
 		new MultiLinePrinter(lineBuffer, screen, infoScreenTopLeft);
 	}
 }

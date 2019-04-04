@@ -14,15 +14,15 @@ import com.googlecode.lanterna.terminal.TerminalResizeListener;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.TerminalPosition;
-public class MultiLinePrinter
-{
-	public MultiLinePrinter(List<String> lines, Screen screen, TerminalPosition startPos)
+public class MultiLinePrinter {
+	public MultiLinePrinter(List<String> lines, Screen screen, TerminalPosition startPos)throws java.io.IOException
+
 	{
+		TerminalPosition workingPos = new TerminalPosition(startPos.getColumn(), startPos.getRow());
 		TextGraphics tg = screen.newTextGraphics();
-		TerminalPosition workingPos = startPos.clone();
-		for (int i = 0; i < lines.length(); i++)
+		for (int i = 0; i < lines.size(); i++)
 		{
-			tg.putString(lines.get(i), workingPos);
+			tg.putString(workingPos, lines.get(i) );
 			workingPos = workingPos.withRelativeRow(1);
 		}	
 
