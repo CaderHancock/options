@@ -31,8 +31,16 @@ public class driver {
 		textGraphics.fill(' ');
 		screen.refresh();
 		//Begin Draw LOOP
+		KeyStroke keyStroke = null;
 		while(itsPartyTime)
-		{
+		{	try
+			{
+				 keyStroke = screen.pollInput();
+				textGraphics.putString(15,15, keyStroke.toString() );
+			}catch(Exception e){
+				textGraphics.putString(15,15, e.getMessage());
+			}
+
 			TerminalSize newSize = screen.doResizeIfNecessary();
 			if(newSize != null)
 			{ 
@@ -41,8 +49,9 @@ public class driver {
 				rows    = terminalSize.getRows();
 
 			}
-		//Draw Header
 			drawHeader(textGraphics,screen, columns,rows);
+			
+			textGraphics.putString(15,15, keyStroke.toString() );
 			new SearchFunction("tsla", screen, Function.infoScreenTopLeft).printStockStat(f.get("tsla"),screen);
 		} 
 	}
