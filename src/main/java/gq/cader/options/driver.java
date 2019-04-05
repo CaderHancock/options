@@ -27,7 +27,7 @@ public class driver {
 		int columns = terminalSize.getColumns();
 		int rows    = terminalSize.getRows();
 		textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
-		textGraphics.setBackgroundColor(TextColor.ANSI.BLACK);
+//		textGraphics.setBackgroundColor(TextColor.ANSI.BLACK);
 		textGraphics.fill(' ');
 		screen.refresh();
 		//Begin Draw LOOP
@@ -43,7 +43,7 @@ public class driver {
 			}
 		//Draw Header
 			drawHeader(textGraphics,screen, columns,rows);
-			new SearchFunction("goog", screen, Function.infoScreenTopLeft).printStockStat(f.get("goog"),screen);
+			new SearchFunction("tsla", screen, Function.infoScreenTopLeft).printStockStat(f.get("tsla"),screen);
 		} 
 	}
 

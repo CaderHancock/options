@@ -21,7 +21,7 @@ public class MultiLinePrinter {
 			TerminalPosition workingPos = new TerminalPosition(startPos.getColumn(), startPos.getRow());
 			TextGraphics tg = screen.newTextGraphics();
 			tg.setForegroundColor(TextColor.ANSI.WHITE);
-                	tg.setBackgroundColor(TextColor.ANSI.BLACK);
+//                	tg.setBackgroundColor(TextColor.ANSI.BLACK);
 			for (int i = 0; i < lines.size(); i++)
 			{
 				tg.putString(workingPos, lines.get(i) );
