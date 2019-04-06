@@ -27,7 +27,7 @@ class SearchFunction implements Function {
 	TerminalPosition functionBarPosition = tp;
 	Screen screen = s;
 	TerminalSize terminalSize = screen.getTerminalSize();
-
+	printStockStat(result, screen);
 	}
 	public void drawInfoScreen( )
 	{

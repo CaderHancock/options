@@ -32,14 +32,9 @@ public class driver {
 		screen.refresh();
 		//Begin Draw LOOP
 		KeyStroke keyStroke = null;
+		drawHeader(textGraphics,screen, columns,rows);
 		while(itsPartyTime)
-		{	try
-			{
-				 keyStroke = screen.pollInput();
-				textGraphics.putString(15,15, keyStroke.toString() );
-			}catch(Exception e){
-				textGraphics.putString(15,15, e.getMessage());
-			}
+		{
 
 			TerminalSize newSize = screen.doResizeIfNecessary();
 			if(newSize != null)
@@ -49,10 +44,9 @@ public class driver {
 				rows    = terminalSize.getRows();
 
 			}
-			drawHeader(textGraphics,screen, columns,rows);
 			
-			textGraphics.putString(15,15, keyStroke.toString() );
-			new SearchFunction("tsla", screen, Function.infoScreenTopLeft).printStockStat(f.get("tsla"),screen);
+			new SearchFunction("tsla", screen, Function.infoScreenTopLeft);
+			keyStroke = screen.readInput();
 		} 
 	}
 
