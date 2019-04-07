@@ -1,6 +1,7 @@
 package gq.cader.options;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.IllegalFormatException;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,10 +34,20 @@ class optionsTest{
 		assertTrue(so.isStockOption);
 		assertFalse(so.isForexOption&&so.isCommoditiesOption);	
 	}
+	//TODO Find more illegal cases
 	@Test
 	public void testValidateStockOptionSymbol(){
-	
-	fail();
+		
+
+		assertThrows(IllegalFormatException.class, () -> {
+			new OptionFactory("XXXXXXXXXXXXXXXX");});
+		assertThrows(IllegalFormatException.class, () -> {
+			new OptionFactory("APTI190405X00185000");});
+		assertThrows(IllegalFormatException.class, ("0000190405C00185000") -> {
+			new OptionFactory();});
+
+
+
 	}
 
 
