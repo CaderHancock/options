@@ -5,7 +5,7 @@
 *TODO
 *Write methods to make api pulls
 *"              " calculate greeks and IV
-*"              " get values
+*"              " get+set methods 
 **/
 package gq.cader.options;
 import java.util.*;
@@ -17,6 +17,8 @@ public class option{
 	public final double strikePrice;
 	public final boolean isCallOption;
 	public final String expiration;
+//	public final boolean isFxOption;
+//	public final boolean isCommoditiesOption;
 
 	//All these values are constantly changing and must only be accessed via methods	
 	private double mark, bid, ask, change, percentChange, volume, openInterest, delta, theta, gamma, vega, rho, iv, underlyingSpotPrice ;

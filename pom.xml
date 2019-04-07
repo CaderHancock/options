@@ -21,12 +21,17 @@
 
   <dependencies>
 	<!--Please forgive my embarrassing code. I litterally just learned what unit testing and test driven design are. -->
+	<dependency>
+	    <groupId>org.junit.jupiter</groupId>
+   	    <artifactId>junit-jupiter</artifactId>
+	    <version>5.4.1</version>
+	    <scope>test</scope>
+	</dependency>	
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-    </dependency>
-    
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>2.26.0</version>
+    </dependency> 
     <dependency>
         <groupId>com.googlecode.lanterna</groupId>
         <artifactId>lanterna</artifactId>
