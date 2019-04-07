@@ -29,9 +29,16 @@ class optionsTest{
 	}
 	@Test
 	public void testStockOptionBoolTypes(){
-		fail();	
-	
+		
+		assertTrue(so.isStockOption);
+		assertFalse(so.isForexOption&&so.isCommoditiesOption);	
 	}
+	@Test
+	public void testValidateStockOptionSymbol(){
+	
+	fail();
+	}
+
 
 
 }

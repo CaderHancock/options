@@ -18,7 +18,7 @@ public class StockOption extends Option{
 	public final boolean isCallOption;
 	public final String expiration;
 	public final boolean isStockOption = true;
-	public final boolean isFxOption = false;
+	public final boolean isForexOption = false;
 	public final boolean isCommoditiesOption = false;
 
 	//All these values are constantly changing and must only be accessed via methods	

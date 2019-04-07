@@ -8,7 +8,7 @@ abstract class Option{
 	public final boolean isCallOption;
 	public final String expiration;
 	public final boolean isStockOption;
-	public final boolean isFxOption;
+	public final boolean isForexOption;
 	public final boolean isCommoditiesOption;
 
 	public Option()
@@ -18,7 +18,7 @@ abstract class Option{
 		strikePrice = 0;
 		isCallOption = false;
 		isStockOption = false;
-		isFxOption = false;
+		isForexOption = false;
 		isCommoditiesOption = false;
 		expiration = null;
 	}
