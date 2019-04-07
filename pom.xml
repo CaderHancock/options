@@ -20,6 +20,7 @@
   </properties>
 
   <dependencies>
+	<!--Please forgive my embarrassing code. I litterally just learned what unit testing and test driven design are. -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
