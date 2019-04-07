@@ -10,13 +10,15 @@ class optionsTest{
 	@Test
 	public void testOptionFactoryWithStockOption(){
 		
-		StockOption so = new OptionFactory().newStockOption("AAPL190405C00185000");
+		StockOption so = new OptionFactory("AAPL190405C00185000").newStockOption();
 		assertNotNull(so);
 
 	}
 	@Test
 	public void testOpFacStockOptionFields(){
-	StockOption so = new OptionFactory().newStockOption("AAPL190405C00185000");
-	fail();
+	StockOption so = new OptionFactory("AAPL190405C00185000").newStockOption();
+	assertNotNull(so.getUnderlyingSymbol());
+	assertTrue(so.getUnderlyingSymbol().equals("AAPL"));
+	assertTrue(so.isCallOption);
 	}
 }

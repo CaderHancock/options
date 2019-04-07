@@ -16,7 +16,7 @@ public class StockOption extends Option{
 	public final String contractSymbol, underlyingSymbol;
 	public final Double strikePrice;
 	public final boolean isCallOption;
-	public final String expiration = null;
+	public final String expiration;
 	public final boolean isStockOption = true;
 	public final boolean isFxOption = false;
 	public final boolean isCommoditiesOption = false;
@@ -35,10 +35,26 @@ public class StockOption extends Option{
 		isCallOption = (s.toUpperCase().charAt(s.length()-9) == 'C');
 		strikePrice = Double.parseDouble(s.substring(s.length()-8)) / 1000 ;
 		StringBuilder sb = new StringBuilder(s.substring((s.length()-15), (s.length()-9)));	
-		//		expiration = sb.insert(0,"20").insert(4," ").insert(7, " ").toString();
+		expiration = sb.insert(0,"20").insert(4," ").insert(7, " ").toString();
 	}
 
 	public Option refresh(){
 		return null;
+	}
+	public String getContractSymbol()
+	{       
+		return this.contractSymbol;
+	}
+	public String getUnderlyingSymbol()
+	{
+		return this.underlyingSymbol;
+	}
+	public double getStrikePrice()
+	{
+		return this.strikePrice;
+	}
+	public String getExpiration()
+	{
+		return this.expiration;
 	}
 }

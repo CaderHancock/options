@@ -1,11 +1,15 @@
 package gq.cader.options;
 class OptionFactory{
+	private final String incomingSymbol;
+	public OptionFactory(String s){
+		
+		incomingSymbol = s;
 
-	public OptionFactory(){
-	
 	}
-	public StockOption newStockOption(String s){
-		StockOption so = new StockOption(s);
+	public StockOption newStockOption(){
+		
+		//if (isValidStockOptionSymbol)
+		StockOption so = new StockOption(incomingSymbol);
 /*
 		so.setContractSymbol(s);
 		so.setUnderlyingSymbol(s.substring(0,(s.length()-15)));

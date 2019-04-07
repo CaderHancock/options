@@ -14,7 +14,7 @@ abstract class Option{
 	public Option()
 	{
 		contractSymbol = null;
-		underlyingSymbol =null;
+		underlyingSymbol = null;
 		strikePrice = 0;
 		isCallOption = false;
 		isStockOption = false;
@@ -25,11 +25,11 @@ abstract class Option{
 	abstract public Option refresh();
 	public String getContractSymbol()
 	{
-		return contractSymbol;
+		return this.contractSymbol;
 	}
 	public String getUnderlyingSymbol()
 	{
-		return underlyingSymbol;
+		return this.underlyingSymbol;
 	}
 	public double getStrikePrice()
 	{
