@@ -1,13 +1,42 @@
 package gq.cader.options;
 import java.util.*;
-interface Option{
+abstract class Option{
 
-	public final String contractSymbol = null;
-       	public final String underlyingSymbol= null;
-	public final Double strikePrice = null;
-	public final Boolean isCallOption = null;
-	public final String expiration= null;
-	public final Boolean isFxOption = null;
-	public final Boolean isCommoditiesOption = null;
-	public Option refresh();
+	public final String contractSymbol;
+	public final String underlyingSymbol;
+	public final double strikePrice;
+	public final boolean isCallOption;
+	public final String expiration;
+	public final boolean isStockOption;
+	public final boolean isFxOption;
+	public final boolean isCommoditiesOption;
+
+	public Option()
+	{
+		contractSymbol = null;
+		underlyingSymbol =null;
+		strikePrice = 0;
+		isCallOption = false;
+		isStockOption = false;
+		isFxOption = false;
+		isCommoditiesOption = false;
+		expiration = null;
+	}
+	abstract public Option refresh();
+	public String getContractSymbol()
+	{
+		return contractSymbol;
+	}
+	public String getUnderlyingSymbol()
+	{
+		return underlyingSymbol;
+	}
+	public double getStrikePrice()
+	{
+		return strikePrice;
+	}
+	public String getExpiration()
+	{
+		return expiration;
+	}
 }

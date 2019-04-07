@@ -8,10 +8,15 @@ import static org.mockito.Mockito.*;
 class optionsTest{
 
 	@Test
-	public void testStockOptionFactory(){
+	public void testOptionFactoryWithStockOption(){
 		
 		StockOption so = new OptionFactory().newStockOption("AAPL190405C00185000");
 		assertNotNull(so);
 
+	}
+	@Test
+	public void testOpFacStockOptionFields(){
+	StockOption so = new OptionFactory().newStockOption("AAPL190405C00185000");
+	fail();
 	}
 }
