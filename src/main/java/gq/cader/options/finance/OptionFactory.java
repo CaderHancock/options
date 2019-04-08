@@ -33,7 +33,7 @@ public class OptionFactory{
 
 	}
 	public boolean isValidStockOptionSymbol(String s){
-		//ooh baby thats spicy
+		//TODO ooh baby thats a spicy regex to refactor *so fun*
 		return Pattern.compile(stockOptionRegex).matches(stockOptionRegex, s);
 	}
 	private boolean hasMultiplePeriods(String s){
