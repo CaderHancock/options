@@ -35,3 +35,4 @@ target/
 .Trashes
 ehthumbs.db
 Thumbs.db
+/root/options/src/main/java/gq/cader/options/finance/.StockOption.java.swo
