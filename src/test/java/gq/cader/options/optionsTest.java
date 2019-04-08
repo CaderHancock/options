@@ -68,7 +68,6 @@ class optionsTest{
 			new OptionFactory("");});
 
 
-
 	}//TODO Find more illegal cases
 	@Test	
 	public void testValidateCommoditiesOptionSymbol(){

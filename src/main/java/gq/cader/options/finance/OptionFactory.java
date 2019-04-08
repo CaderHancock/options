@@ -10,6 +10,7 @@ public class OptionFactory{
 	
 		if(!isValidOptionSymbol(s))
 			throw  new Exception();
+
 		incomingSymbol = s;
 
 	}
