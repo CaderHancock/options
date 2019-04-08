@@ -13,10 +13,14 @@ class optionsTest{
 	@BeforeEach
 	void setup() {
 
+	try{
 		so = new OptionFactory("APTI190405C00185000").newStockOption();
 		//co = new OptionFactory("").newCommoditiesOption();
 		//fo = new OptionFactory("").newForexOption();
+	}catch(Exception e){
 
+		fail();
+	}
 	}
 	@Test
 	public void testOptionFactoryWithStockOption(){
@@ -42,11 +46,11 @@ class optionsTest{
 	public void testValidateStockOptionSymbol(){
 
 
-		assertThrows(IllegalFormatException.class, () -> {
+		assertThrows(Exception.class, () -> {
 			new OptionFactory("XXXXXXXXXXXXXXXX");});
-		assertThrows(IllegalFormatException.class, () -> {
+		assertThrows(Exception.class, () -> {
 			new OptionFactory("APTI190405X00185000");});
-		assertThrows(IllegalFormatException.class, () -> {
+		assertThrows(Exception.class, () -> {
 			new OptionFactory("0000190405C00185000");});
 
 
@@ -56,13 +60,12 @@ class optionsTest{
 	public void testValidateForexOptionSymbol(){
 
 
-		assertThrows(IllegalFormatException.class, () -> {
+		assertThrows(Exception.class, () -> {
 			new OptionFactory("");});
-		assertThrows(IllegalFormatException.class, () -> {
+		assertThrows(Exception.class, () -> {
 			new OptionFactory("");});
-		assertThrows(IllegalFormatException.class, () -> {
-			new OptionFactory();});
-
+		assertThrows(Exception.class, () -> {
+			new OptionFactory("");});
 
 
 	}//TODO Find more illegal cases
@@ -70,11 +73,11 @@ class optionsTest{
 	public void testValidateCommoditiesOptionSymbol(){
 
 
-		assertThrows(IllegalFormatException.class, () -> {
+		assertThrows(Exception.class, () -> {
 			new OptionFactory("");});
-		assertThrows(IllegalFormatException.class, () -> {
+		assertThrows(Exception.class, () -> {
 			new OptionFactory("");});
-		assertThrows(IllegalFormatException.class, () -> {
+		assertThrows(Exception.class, () -> {
 			new OptionFactory("");});
 
 
