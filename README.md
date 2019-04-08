@@ -6,7 +6,7 @@ Please give me feedback regarding design choices as this is an independant study
 
 Current milestones:
 
-  -Develop objects and factories for all financial instruments with 100% unit test coverage
+  -Develop objects and factories for all financial instruments with 100% unit test coverage using junit 5 and mockito
   
   -implement most of current gui design doc (Currently last priority because i'd rather learn junit 5 and mockito instead of a text gui)
   
