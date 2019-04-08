@@ -1,32 +1,29 @@
-This is going to be an app to aid me with options trading when "complete" 
+This is going to be an app to aid me with options trading when "complete". Which will hopefully be (ValveTime)"soon"
 
 Apart from fun and furthering the dream of living off of algo trading, this project is intended to showcase (some level of) technical ability.
 
-Please give me feedback regarding design choices as this is an independant study project (Ignore driver.java. I may abandon that gui api alltogether.)
+Please give me feedback regarding design choices as this is an independant study project (ignore everything outside src/main/.../options/finance and src/test.)
 
-Current milestones
+Current milestones:
 
-  Develop objects and factories for all financial instruments with 100% unit test coverage
+  -Develop objects and factories for all financial instruments with 100% unit test coverage using junit 5 and mockito
   
+  -implement most of current gui design doc (Currently last priority because i'd rather learn junit 5 and mockito instead of a text gui)
   
+  -Stock paper trading
   
-  implement most of current gui design doc (Currently last priority because i'd rather learn enterprise libraries instead of a text gui)
+  -financial formula objects
   
- 
-  Stock paper trading
+  -find decent, free, easy to implement derivitives data api (Actually kinda hard)
   
-  financial formula objects
+  -derivitives paper trading
   
-  find decent, free, easy to implement derivitives data api (Actually kinda hard)
+  -algo trading engine
   
-  derivitives paper trading
-  
-  algo trading engine
-  
-  brokerage account integration
+  -brokerage account integration
   
   
   
 also, i like to use a script that pulls commit messages from whatthecommit.com to keep me entertained while working
-so please don't judge too harshly 
-"meaningful" commit messages are usually in ALLCAPS
+so please don't judge too harshly UPDATE: I have some idea of what I'm doing now and have actual messages
+
