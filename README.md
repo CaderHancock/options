@@ -1,4 +1,4 @@
-This is going to be an app to aid me with options trading when "complete". Which will hepefully be (ValveTime)"soon"
+This is going to be an app to aid me with options trading when "complete". Which will hopefully be (ValveTime)"soon"
 
 Apart from fun and furthering the dream of living off of algo trading, this project is intended to showcase (some level of) technical ability.
 
@@ -8,7 +8,7 @@ Current milestones:
 
   -Develop objects and factories for all financial instruments with 100% unit test coverage
   
-  -implement most of current gui design doc (Currently last priority because i'd rather learn enterprise libraries instead of a text gui)
+  -implement most of current gui design doc (Currently last priority because i'd rather learn junit 5 and mockito instead of a text gui)
   
   -Stock paper trading
   
