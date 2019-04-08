@@ -1,8 +1,6 @@
 package gq.cader.options;
 
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.IllegalFormatException;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.*;
