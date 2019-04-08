@@ -61,7 +61,7 @@ class optionsTest{
 		assertThrows(IllegalFormatException.class, () -> {
 			new OptionFactory("");});
 		assertThrows(IllegalFormatException.class, () -> {
-			new OptionFactory();});
+			new OptionFactory("");});
 
 
 
