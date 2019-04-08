@@ -48,6 +48,8 @@ class optionsTest{
 		assertThrows(Exception.class, () -> {new OptionFactory("A.T.190405C00185000");});
 		assertThrows(Exception.class, () -> {new OptionFactory("APT.190405C00185000");});
 		assertThrows(Exception.class, () -> {new OptionFactory("AP..I190405C00185000");});
+		assertThrows(Exception.class, () -> {new OptionFactory("APTI192445C00185000");});
+
 	}//TODO Find more illegal cases
 	@Test
 	public void testValidateForexOptionSymbol(){

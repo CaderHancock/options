@@ -17,36 +17,28 @@ public class OptionFactory{
 	public StockOption newStockOption(){
 
 		StockOption so = new StockOption(incomingSymbol);
-		/*
-		   so.setContractSymbol(s);
-		   so.setUnderlyingSymbol(s.substring(0,(s.length()-15)));
-
-		   so.isCallOption = (s.toUpperCase().charAt(s.length()-9) == 'C');
-		   so.setStrikePrice(Double.parseDouble(s.substring(s.length()-8)) / 1000);
-		   StringBuilder sb = new StringBuilder(s.substring((s.length()-15), (s.length()-9)));
-		   so.setExpiration = sb.insert(0,"20").insert(4," ").insert(7, " ").toString();
-		   */		return so;
+				return so;
 
 	}
 	public boolean isValidOptionSymbol(String s){
-		return (isValidStockOptionSymbol(s)&&(!hasMultiplePeriods(s)));
+		return (isValidStockOptionSymbol(s)&&hasOnlyOnePeriod(s));
 
 	}
 	public boolean isValidStockOptionSymbol(String s){
 		//TODO ooh baby thats a spicy regex to refactor *so fun*
 		return Pattern.compile(stockOptionRegex).matches(stockOptionRegex, s);
 	}
-	private boolean hasMultiplePeriods(String s){
+	private boolean hasOnlyOnePeriod(String s){
 		int numDot = 0;
 		for(int i = 0; i < s.length(); i++){
 			if (numDot>1)
-				return true;
+				return false;
 			if(s.charAt(i)=='.')
 				numDot++;
 
 		}
 
-		return false;
+		return true;
 
 	}
 
