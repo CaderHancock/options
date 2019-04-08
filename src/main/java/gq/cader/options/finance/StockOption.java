@@ -5,7 +5,6 @@
  *TODO
  *Write methods to make api pulls
  *"              " calculate greeks and IV
- *"              " get+set methods 
  **/
 package gq.cader.options;
 import java.util.*;
@@ -21,9 +20,9 @@ public class StockOption extends Option{
 	public final boolean isForexOption = false;
 	public final boolean isCommoditiesOption = false;
 
-	//All these values are constantly changing and must only be accessed via methods	
-	private double mark, bid, ask, change, percentChange, volume, openInterest, delta, theta, gamma, vega, rho, iv, underlyingSpotPrice ;
-
+	//All these values are constantly changing and must only be accessed via methods when finally implemented	
+	private double mark, bid, ask, change, percentChange,  delta, theta, gamma, vega, rho, iv, underlyingSpotPrice ;
+	private int volume, openInterest, bidSize, askSize;
 	/**
 	 * @param s The OCC symbol for the options contract represented by this class
 	 * @see <a href="https://en.wikipedia.org/wiki/Option_symbol">Options symbol</a>
