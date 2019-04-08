@@ -2,7 +2,7 @@ This is going to be an app to aid me with options trading when "complete". Which
 
 Apart from fun and furthering the dream of living off of algo trading, this project is intended to showcase (some level of) technical ability.
 
-Please give me feedback regarding design choices as this is an independant study project (Ignore driver.java. I may abandon that gui api alltogether.)
+Please give me feedback regarding design choices as this is an independant study project (ignore everything outside src/main/.../options/finance and src/test.)
 
 Current milestones:
 
