@@ -1,9 +1,9 @@
 package gq.cader.options;
 
-interface TradeableAsset{
+interface Asset{
 
 String symbol = null;
-double price = 0;
+double value = 0;
 
 
 }
