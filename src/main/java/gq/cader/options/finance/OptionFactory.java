@@ -1,14 +1,20 @@
 package gq.cader.options;
-class OptionFactory{
+
+import java.util.regex.Pattern;
+import java.util.*;
+import java.util.IllegalFormatException;
+public class OptionFactory{
 	private final String incomingSymbol;
-	public OptionFactory(String s){
-		
+	private final String stockOptionRegex = "[A-Z][A-Z..]{1,3}?[A-Z]\\d{6}?[CP]\\d{8}";
+	public OptionFactory(String s)throws Exception{
+	
+		if(!isValidOptionSymbol(s))
+			throw  new Exception();
 		incomingSymbol = s;
 
 	}
 	public StockOption newStockOption(){
 		
-		//if (isValidStockOptionSymbol)
 		StockOption so = new StockOption(incomingSymbol);
 /*
 		so.setContractSymbol(s);
@@ -21,5 +27,14 @@ class OptionFactory{
 */		return so;
 
 	}
+	public boolean isValidOptionSymbol(String s){
+	return isValidStockOptionSymbol(s);
+	
+	}
+	public boolean isValidStockOptionSymbol(String s){
+	//ooh baby thats spicy
+	return Pattern.compile(stockOptionRegex).matches(stockOptionRegex, s);
+	}
+
 
 }
