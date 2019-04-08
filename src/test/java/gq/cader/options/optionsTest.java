@@ -45,13 +45,23 @@ class optionsTest{
 	@Test
 	public void testValidateStockOptionSymbol(){
 
+//"APTI190405C00185000"
 
-		assertThrows(Exception.class, () -> {
-			new OptionFactory("XXXXXXXXXXXXXXXX");});
-		assertThrows(Exception.class, () -> {
-			new OptionFactory("APTI190405X00185000");});
-		assertThrows(Exception.class, () -> {
-			new OptionFactory("0000190405C00185000");});
+		assertThrows(Exception.class, () -> {new OptionFactory("XXXXXXXXXXXXXXXX");});
+		assertThrows(Exception.class, () -> {new OptionFactory("APTI190405X00185000");});
+		assertThrows(Exception.class, () -> {new OptionFactory(".PTI190405C00185000");});
+		assertThrows(Exception.class, () -> {new OptionFactory("A..I190405C00185000");});
+		assertThrows(Exception.class, () -> {new OptionFactory("A.T.190405C00185000");});
+		assertThrows(Exception.class, () -> {new OptionFactory("APT.190405C00185000");});
+		assertThrows(Exception.class, () -> {new OptionFactory("AP..I190405C00185000");});
+
+
+
+
+
+
+
+
 
 
 
