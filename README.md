@@ -1,8 +1,7 @@
-This is going to be an app to aid me with options trading when "complete". Which will hopefully be (ValveTime)"soon"
+  This is going to be an app to aid me with options trading when "complete". Which will hopefully be (ValveTime)"soon"
 
-Apart from fun and furthering the dream of living off of algo trading, this project is intended to showcase (some level of) technical ability.
-
-Please give me feedback regarding design choices as this is an independant study project (ignore everything outside src/main/.../options/finance and src/test.)
+  Apart from fun and furthering the dream of living off of algo trading, this project is intended to showcase (some level of) technical ability.
+  Please give me feedback regarding design choices as this is an independant study project 
 
 Current milestones:
 
@@ -24,6 +23,6 @@ Current milestones:
   
   
   
-also, i like to use a script that pulls commit messages from whatthecommit.com to keep me entertained while working
+also, i  sometimes like to use a script that pulls commit messages from whatthecommit.com to keep me entertained while working
 so please don't judge too harshly UPDATE: I have some idea of what I'm doing now and have actual messages
 
