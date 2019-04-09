@@ -6,7 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.*;
 
 class AssetFactoryStockOptionTest{
-	private final String validUnderCurrentRequirements = "AAPL  190405C00185000";	
+	private final String validUnderCurrentRequirements = "AAPL  190405C00185000";
+								//invalid date, expired as of writing
+								//testIfOptionIsExpired will use mock of type java.util.Date
+								//mocking the system time	
 	StockOption so;
 	
 	@BeforeEach//Test, make sure that a string that meets current requirements does not throw anything
