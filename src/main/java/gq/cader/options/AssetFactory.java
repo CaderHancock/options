@@ -42,7 +42,7 @@ public class AssetFactory{
 
 	}
 	public Stock getStock(){
-	return null;
+	return new Stock("");
 	}
 
 

@@ -13,6 +13,9 @@ public	double value = 0;
 public double getValue(){
 return value;
 }
+public String getSymbol(){
+return symbol;
+}
 
 }
 

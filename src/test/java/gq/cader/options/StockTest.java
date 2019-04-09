@@ -22,5 +22,9 @@ class StockTest{
 
 		assertNotNull(stock);
 	}
+	@Test
+	public void testStockSymbolInitializedCorrectly(){
+	assertTrue(stock.getSymbol().equals("APPL"));
+	}
 
 }
