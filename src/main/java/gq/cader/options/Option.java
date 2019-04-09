@@ -1,3 +1,10 @@
+/*	Theta
+ *
+ *  Always decaying,
+ * an Athenian symbol
+ *   betrays greed
+ *
+ */
 package gq.cader.options;
 import java.util.*;
 abstract class Option{
