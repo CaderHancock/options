@@ -2,7 +2,7 @@
  *
  *  Always decaying,
  * an Athenian symbol
- *   betrays greed
+ * destroys your wallet 
  *
  */
 package gq.cader.options;
