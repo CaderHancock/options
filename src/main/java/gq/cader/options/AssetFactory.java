@@ -51,7 +51,11 @@ public class AssetFactory{
 
 	}
 	public Stock getStock(){
-	return new Stock("");
+		try{
+			return new Stock(new YahooFinance().get(incomingSymbol));
+		}catch(Exception e){
+			return null;
+		}
 	}
 
 
