@@ -29,7 +29,7 @@ public class StockOption extends Option{
 	 */
 	public StockOption(String s){
 		contractSymbol = s; 
-		underlyingSymbol = s.substring(0,(s.length()-15));
+		underlyingSymbol = s.substring(0,(s.length()-15)).replaceAll("\\s","");
 
 		isCallOption = (s.toUpperCase().charAt(s.length()-9) == 'C');
 		strikePrice = Double.parseDouble(s.substring(s.length()-8)) / 1000 ;
