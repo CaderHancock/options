@@ -3,10 +3,10 @@ package gq.cader.options;
 import java.util.regex.Pattern;
 import java.util.*;
 import java.util.IllegalFormatException;
-public class OptionFactory{
+public class AssetFactory{
 	private final String incomingSymbol;
 	private final String stockOptionRegex = "[A-Z][A-Z..]{1,3}?[A-Z]\\d{6}?[CP]\\d{8}";
-	public OptionFactory(String s)throws Exception{
+	public AssetFactory(String s)throws Exception{
 
 		if(!isValidOptionSymbol(s))
 			throw  new Exception();
@@ -40,6 +40,9 @@ public class OptionFactory{
 
 		return true;
 
+	}
+	public Stock getStock(){
+	return null;
 	}
 
 
