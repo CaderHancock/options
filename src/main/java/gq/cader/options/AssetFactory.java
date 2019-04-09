@@ -1,5 +1,6 @@
 package gq.cader.options;
 
+import yahoofinance.*;
 import java.util.regex.Pattern;
 import java.util.*;
 import java.util.IllegalFormatException;
@@ -8,7 +9,7 @@ public class AssetFactory{
 	private final String stockOptionRegex = "[A-Z][A-Z..]{1,3}?[A-Z]\\d{6}?[CP]\\d{8}";
 	public AssetFactory(String s)throws Exception{
 
-		if(!isValidOptionSymbol(s))
+		if(!isValidAssetSymbol(s))
 			throw  new Exception();
 
 		incomingSymbol = s;
@@ -20,8 +21,16 @@ public class AssetFactory{
 				return so;
 
 	}
-	public boolean isValidOptionSymbol(String s){
-		return (isValidStockOptionSymbol(s)&&hasOnlyOnePeriod(s));
+	public boolean isValidAssetSymbol(String s){
+		if(isValidStockOptionSymbol(s)&&hasOnlyOnePeriod(s))
+			return true;
+		try{
+		YahooFinance finance = new YahooFinance();
+		if(finance.get(s) != null)
+			return true;
+		}catch(Exception e){
+		}
+		return false;
 
 	}
 	public boolean isValidStockOptionSymbol(String s){

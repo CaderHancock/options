@@ -11,4 +11,5 @@ class Stock extends Asset{
 	//TODO api calls 
 	return value;
 	}
+
 }
