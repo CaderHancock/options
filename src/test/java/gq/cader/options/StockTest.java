@@ -11,9 +11,8 @@ class StockTest{
 	@BeforeEach
 	void setup(){
 		try{
-			stock = new AssetFactory("APPL").getStock();
+			stock = new AssetFactory("AAPL").getStock();
 		}catch(Exception e){
-			fail();
 		}
 
 	}
@@ -24,7 +23,7 @@ class StockTest{
 	}
 	@Test
 	public void testStockSymbolInitializedCorrectly(){
-	assertTrue(stock.getSymbol().equals("APPL"));
+	assertTrue(stock.getSymbol().equals("AAPL"));
 	}
 
 }

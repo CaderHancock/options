@@ -1,3 +1,8 @@
+/*This class is for executing all the business logic required such that
+ * this class takes a string and either throws an Exception or correctly instantiates an Asset. 
+ * this class should never return a null asset
+ * 
+ */
 package gq.cader.options;
 
 import yahoofinance.*;
@@ -51,7 +56,11 @@ public class AssetFactory{
 
 	}
 	public Stock getStock(){
-	return new Stock("");
+		try{
+			return new Stock(new YahooFinance().get(incomingSymbol));
+		}catch(Exception e){
+			return null;
+		}
 	}
 
 
