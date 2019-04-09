@@ -5,23 +5,23 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.mockito.Mockito.*;
 
-class optionsTest{
+class OptionsTest{
 
 	StockOption so;
 	@BeforeEach
 	void setup() {
 
 	try{
-		so = new OptionFactory("APTI190405C00185000").newStockOption();
-		//co = new OptionFactory("").newCommoditiesOption();
-		//fo = new OptionFactory("").newForexOption();
+		so = new AssetFactory("APTI190405C00185000").newStockOption();
+		//co = new AssetFactory("").newCommoditiesOption();
+		//fo = new AssetFactory("").newForexOption();
 	}catch(Exception e){
 
 		fail();
 	}
 	}
 	@Test
-	public void testOptionFactoryWithStockOption(){
+	public void testAssetFactoryWithStockOption(){
 		assertNotNull(so);
 	}
 	@Test
@@ -39,33 +39,33 @@ class optionsTest{
 	//TODO Find more illegal cases
 	@Test
 	public void testValidateStockOptionSymbol(){
-		assertThrows(Exception.class, () -> {new OptionFactory("XXXXXXXXXXXXXXXX");});
-		assertThrows(Exception.class, () -> {new OptionFactory("APTI190405X00185000");});
-		assertThrows(Exception.class, () -> {new OptionFactory(".PTI190405C00185000");});
-		assertThrows(Exception.class, () -> {new OptionFactory("A..I190405C00185000");});
-		assertThrows(Exception.class, () -> {new OptionFactory("A.T.190405C00185000");});
-		assertThrows(Exception.class, () -> {new OptionFactory("APT.190405C00185000");});
-		assertThrows(Exception.class, () -> {new OptionFactory("AP..I190405C00185000");});
-		assertThrows(Exception.class, () -> {new OptionFactory("APTI192445C00185000");});
+		assertThrows(Exception.class, () -> {new AssetFactory("XXXXXXXXXXXXXXXX");});
+		assertThrows(Exception.class, () -> {new AssetFactory("APTI190405X00185000");});
+		assertThrows(Exception.class, () -> {new AssetFactory(".PTI190405C00185000");});
+		assertThrows(Exception.class, () -> {new AssetFactory("A..I190405C00185000");});
+		assertThrows(Exception.class, () -> {new AssetFactory("A.T.190405C00185000");});
+		assertThrows(Exception.class, () -> {new AssetFactory("APT.190405C00185000");});
+		assertThrows(Exception.class, () -> {new AssetFactory("AP..I190405C00185000");});
+		assertThrows(Exception.class, () -> {new AssetFactory("APTI192445C00185000");});
 
 	}//TODO Find more illegal cases
 	@Test
 	public void testValidateForexOptionSymbol(){
 		assertThrows(Exception.class, () -> {
-			new OptionFactory("");});
+			new AssetFactory("");});
 		assertThrows(Exception.class, () -> {
-			new OptionFactory("");});
+			new AssetFactory("");});
 		assertThrows(Exception.class, () -> {
-			new OptionFactory("");});
+			new AssetFactory("");});
 
 	}//TODO Find more illegal cases
 	@Test	
 	public void testValidateCommoditiesOptionSymbol(){
 		assertThrows(Exception.class, () -> {
-			new OptionFactory("");});
+			new AssetFactory("");});
 		assertThrows(Exception.class, () -> {
-			new OptionFactory("");});
+			new AssetFactory("");});
 		assertThrows(Exception.class, () -> {
-			new OptionFactory("");});
+			new AssetFactory("");});
 	}
 }
