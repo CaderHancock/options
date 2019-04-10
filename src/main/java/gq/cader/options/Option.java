@@ -46,4 +46,7 @@ abstract class Option{
 	{
 		return expiration;
 	}
+	public boolean isCallOption(){
+		return isCallOption;
+	}
 }
