@@ -7,8 +7,7 @@ package gq.cader.options;
 
 import yahoofinance.*;
 import java.util.regex.Pattern;
-import java.util.*;
-import java.util.IllegalFormatException;
+
 public class AssetFactory{
 	private final String incomingSymbol;
 	private final String stockOptionRegex = "([\\w ]{6})((\\d{2})(\\d{2})(\\d{2}))([PC])(\\d{8})";
