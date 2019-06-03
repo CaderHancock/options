@@ -7,7 +7,7 @@
 *.o
 *.so
 target/
-
+*.swo
 
 
 .classpath
