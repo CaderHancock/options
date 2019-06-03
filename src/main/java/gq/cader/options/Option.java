@@ -12,21 +12,14 @@ abstract class Option extends Asset{
 	public final String contractSymbol;
 	public final String underlyingSymbol;
 	public final double strikePrice;
-	public final boolean isCallOption;
 	public final String expiration;
-	public final boolean isStockOption;
-	public final boolean isForexOption;
-	public final boolean isCommoditiesOption;
-
+	public	OptionType optionType;
+	
 	public Option()
 	{
 		contractSymbol = null;
 		underlyingSymbol = null;
 		strikePrice = 0;
-		isCallOption = false;
-		isStockOption = false;
-		isForexOption = false;
-		isCommoditiesOption = false;
 		expiration = null;
 	}
 	abstract public Option refresh();
@@ -46,8 +39,5 @@ abstract class Option extends Asset{
 	public String getExpiration()
 	{
 		return expiration;
-	}
-	public boolean isCallOption(){
-		return isCallOption;
 	}
 }

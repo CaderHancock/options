@@ -34,21 +34,19 @@ class AssetFactoryStockOptionTest{
 		assertNotNull(o.getUnderlyingSymbol());
 		assertTrue(o.getUnderlyingSymbol().equals("AAPL"));
 		assertTrue(o.getStrikePrice() == 185);
-		assertTrue(o.isCallOption());
+		assertTrue(o.assetType == AssetType.STOCKOPTION);
+		assertTrue(o.optionType == OptionType.CALL);	
 	}
 	@Test
 	public void testAssetFactoryStockOptionFields(){
 		
 		assertNotNull(so.getUnderlyingSymbol());
 		assertTrue(so.getUnderlyingSymbol().equals("AAPL"));
-		assertTrue(so.isCallOption);
+		assertTrue(so.optionType == OptionType.CALL);
 		assertTrue(so.getStrikePrice() == 185);
 	}
-	@Test
-	public void testAssetFactoryStockOptionBoolTypes(){
-		assertTrue(so.isStockOption);
-		assertFalse(so.isForexOption||so.isCommoditiesOption);	
-	}
+	
+	
 	//TODO Find more illegal cases 
 	//Test illegal symbol format
 	@Test

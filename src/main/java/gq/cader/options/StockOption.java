@@ -14,11 +14,7 @@ public class StockOption extends Option{
 
 	public final String contractSymbol, underlyingSymbol;
 	public final Double strikePrice;
-	public final boolean isCallOption;
 	public final String expiration;
-	public final boolean isStockOption = true;
-	public final boolean isForexOption = false;
-	public final boolean isCommoditiesOption = false;
 
 	//All these values are constantly changing and must only be accessed via methods when finally implemented	
 	private double mark, bid, ask, change, percentChange,  delta, theta, gamma, vega, rho, iv, underlyingSpotPrice ;
@@ -30,8 +26,8 @@ public class StockOption extends Option{
 	public StockOption(String s){
 		contractSymbol = s; 
 		underlyingSymbol = s.substring(0,(s.length()-15)).replaceAll("\\s","");
-
-		isCallOption = (s.toUpperCase().charAt(s.length()-9) == 'C');
+		this.assetType = AssetType.STOCKOPTION;
+		this.optionType = (s.toUpperCase().charAt(s.length()-9) == 'C') ? OptionType.CALL : OptionType.PUT;
 		strikePrice = Double.parseDouble(s.substring(s.length()-8)) / 1000 ;
 		StringBuilder sb = new StringBuilder(s.substring((s.length()-15), (s.length()-9)));	
 		expiration = sb.insert(0,"20").insert(4," ").insert(7, " ").toString();
