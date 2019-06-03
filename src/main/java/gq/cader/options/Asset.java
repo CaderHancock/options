@@ -12,6 +12,9 @@ return value;
 public String getSymbol(){
 return symbol;
 }
+public String getUnderlyingSymbol(){
+	return symbol;
+}
 
 }
 

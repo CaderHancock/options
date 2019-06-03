@@ -7,7 +7,7 @@
  */
 package gq.cader.options;
 import java.util.*;
-abstract class Option{
+abstract class Option extends Asset{
 
 	public final String contractSymbol;
 	public final String underlyingSymbol;
@@ -34,6 +34,7 @@ abstract class Option{
 	{
 		return this.contractSymbol;
 	}
+	@Override
 	public String getUnderlyingSymbol()
 	{
 		return this.underlyingSymbol;
