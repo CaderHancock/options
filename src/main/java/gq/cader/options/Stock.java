@@ -1,10 +1,9 @@
 package gq.cader.options;
-import yahoofinance.*;
 
 class Stock extends Asset{
 
 	public Stock(String s){
-	
+	this.assetType = AssetType.STOCK;	
 	symbol = s;
 	}
 	public Stock(yahoofinance.Stock yahooStock){

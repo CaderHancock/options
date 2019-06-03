@@ -2,7 +2,7 @@ package gq.cader.options;
 import java.util.*;
 
 abstract class Asset{
-
+AssetType assetType;
 String symbol;
 public	double value = 0;
 
