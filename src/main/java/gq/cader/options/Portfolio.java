@@ -1,6 +1,5 @@
 package gq.cader.options;
 import java.util.Set;
-import java.util.stream.*;
 
 class Portfolio extends Asset{
 
