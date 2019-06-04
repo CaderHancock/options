@@ -22,6 +22,10 @@ class StockTest{
 		assertNotNull(stock);
 	}
 	@Test
+	public void testStockNotPoor(){
+		assertTrue(stock.getValue()>0);
+	}
+	@Test
 	public void testStockSymbolInitializedCorrectly(){
 	assertTrue(stock.getSymbol().equals("AAPL"));
 	}
