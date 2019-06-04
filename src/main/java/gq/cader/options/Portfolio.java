@@ -16,7 +16,7 @@ class Portfolio extends Asset{
 	@Override
 	public double getValue(){
 		return portfolio.entrySet().stream()
-				//Get Map value, then get Asset value
+				//Get Map value(Asset), then get Asset value
 				.mapToDouble(x -> x.getValue().getValue())
 				.sum();
 	}
