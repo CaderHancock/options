@@ -23,8 +23,6 @@ Current milestones:
   
   -brokerage account integration
   
-  
-  
 also, i  sometimes like to use a script that pulls commit messages from whatthecommit.com to keep me entertained while working
 so please don't judge too harshly UPDATE: I have some idea of what I'm doing now and have actual messages
 
