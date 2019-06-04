@@ -9,9 +9,9 @@ import static org.mockito.Mockito.*;
 import java.util.ArrayList;
  class PortfolioTest{
 	
-	 Portfolio p;
-	 Portfolio p1;
-	 Stock stock, stock1;
+	 private Portfolio p;
+	 private Portfolio p1;
+	 private Stock stock, stock1;
 	 @BeforeEach
 	 void setup(){
 		try{stock = new AssetFactory("AAPL").getStock();

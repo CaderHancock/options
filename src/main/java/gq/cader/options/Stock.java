@@ -3,11 +3,11 @@ package gq.cader.options;
 import yahoofinance.*;
 
 class Stock extends Asset{
-	YahooFinance finance = new YahooFinance();
-	yahoofinance.Stock yahoo;
+	protected YahooFinance finance = new YahooFinance();
+	protected yahoofinance.Stock yahoo;
 	public Stock(String s){
 	this.assetType = AssetType.STOCK;	
-	symbol = s;
+	this.symbol = s;
 	try{
 	yahoo = finance.get(s);
 	}catch(Exception e){}
