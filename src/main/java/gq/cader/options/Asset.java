@@ -3,7 +3,7 @@ import java.util.*;
 
 abstract class Asset{
 public AssetType assetType;
-private String symbol;
+protected String symbol;
 public	double value = 0;
 
 public double getValue(){
