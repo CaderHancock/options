@@ -1,25 +1,26 @@
 package gq.cader.options;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.Map;
+import java.util.HashMap;
 
 class Portfolio extends Asset{
 
-	private Set<Asset> portfolio;
+	private Map<String, Asset> portfolio;
 	
 	public Portfolio(){
-		portfolio = new TreeSet<Asset>();
+		portfolio = new HashMap<String, Asset>();
 	}
-	public Portfolio(Set<Asset> portfolio){
+	public Portfolio(HashMap<String, Asset> portfolio){
 		this.portfolio = portfolio;
 	}
 
 	@Override
 	public double getValue(){
-		return portfolio.stream()
-				.mapToDouble(x -> x.getValue())
+		return portfolio.entrySet().stream()
+				//Get Map value, then get Asset value
+				.mapToDouble(x -> x.getValue().getValue())
 				.sum();
 	}
-	public Set<Asset> getAssets()
+	public Map<String, Asset> getAssets()
 	{
 		return portfolio;
 	}

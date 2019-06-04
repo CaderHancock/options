@@ -14,7 +14,7 @@ public class AssetFactory{
 	public AssetFactory(String s)throws Exception{
 
 		if(!isValidAssetSymbol(s))
-			throw  new Exception();
+			throw  new IllegalArgumentException();
 
 		incomingSymbol = s;
 
