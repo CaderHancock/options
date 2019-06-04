@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 
-import static org.mockito.Mockito.*;
 
 class AssetFactoryStockOptionTest{
 	private final String validUnderCurrentRequirements = "AAPL  190405C00185000";

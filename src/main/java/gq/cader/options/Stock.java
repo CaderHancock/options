@@ -1,18 +1,25 @@
 package gq.cader.options;
 
-class Stock extends Asset{
+import yahoofinance.*;
 
+class Stock extends Asset{
+	YahooFinance finance = new YahooFinance();
+	yahoofinance.Stock yahoo;
 	public Stock(String s){
 	this.assetType = AssetType.STOCK;	
 	symbol = s;
+	try{
+	yahoo = finance.get(s);
+	}catch(Exception e){}
 	}
 	public Stock(yahoofinance.Stock yahooStock){
 	
 	this.symbol = yahooStock.getSymbol();
 	}
 	public double getValue(){
-	//TODO api calls 
-	return value;
+	try{	
+		return yahoo.getQuote(true).getPrice().doubleValue();
+	}catch(Exception e){return 0;}
 	}
 
 }
