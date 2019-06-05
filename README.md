@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/652ca881548e4c80839542534395d011)](https://app.codacy.com/app/CaderHancock/options?utm_source=github.com&utm_medium=referral&utm_content=CaderHancock/options&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](http://35.247.42.99:8080/buildStatus/icon?job=options)](http://35.247.42.99:8080/job/options/)
  
  This is going to be an app to aid me with options trading when "complete". Which will hopefully be (ValveTime)"soon"
