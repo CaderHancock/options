@@ -9,7 +9,7 @@ Current milestones:
 
   -Develop objects and factories for all financial instruments with 100% unit test coverage using junit 5 and mockito
   
-  -implement most of current gui design doc (Currently last priority because i'd rather learn junit 5 and mockito instead of a text gui)
+  -implement most of current gui design doc in with Spring Boot and some unknow front end framework 
   
   -Stock paper trading
   
@@ -22,7 +22,3 @@ Current milestones:
   -algo trading engine
   
   -brokerage account integration
-  
-also, i  sometimes like to use a script that pulls commit messages from whatthecommit.com to keep me entertained while working
-so please don't judge too harshly UPDATE: I have some idea of what I'm doing now and have actual messages
-
