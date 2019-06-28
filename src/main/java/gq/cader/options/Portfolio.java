@@ -24,4 +24,10 @@ class Portfolio extends Asset{
 	{
 		return portfolio;
 	}
+
+	//TODO This  stuff
+	public void addAsset(Asset a){
+	}
+	public void merge(Portfolio p){
+	}
 }
