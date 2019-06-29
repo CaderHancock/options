@@ -16,7 +16,7 @@ public class StockOption extends Option{
 	public final Double strikePrice;
 	public final String expiration;
 
-	//All these values are constantly changing and must only be accessed via methods when finally implemented	
+	//TODO All these values are constantly changing and must only be accessed via methods when finally implemented	
 	private double mark, bid, ask, change, percentChange,  delta, theta, gamma, vega, rho, iv, underlyingSpotPrice ;
 	private int volume, openInterest, bidSize, askSize;
 	/**
