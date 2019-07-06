@@ -24,7 +24,7 @@ class PortfolioTest{
 		}catch (Exception e){}
 		Stock mock1 = mock(Stock.class);
 		Stock mock2 = mock(Stock.class);
-		when(mock1.getValue()).thenReturn(100.0);
+		when(mock1.getValue()).thenReturn(100.69);
 		when(mock2.getValue()).thenReturn(320.0);
 		HashMap<String, Asset> mocking = new HashMap<String, Asset>();
 		mocking.put("foo", mock1);
@@ -33,7 +33,7 @@ class PortfolioTest{
 	}
 	@Test
 	public void yolo(){
-		assertTrue(p1.getValue()==420.0);
+		assertTrue(p1.getValue()==420.69);
 		System.out.println(p1.getValue());
 		System.out.println(stock.getValue());
 		System.out.println(stock1.getValue());
