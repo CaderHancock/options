@@ -35,9 +35,6 @@ class PortfolioTest{
 	public void yolo(){
 		assertTrue(p1.getValue()==420.69);
 		System.out.println(p1.getValue());
-		System.out.println(stock.getValue());
-		System.out.println(stock1.getValue());
-		// AssertTrue(p.getValue()>0);
 	}
 
 
