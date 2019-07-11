@@ -2,9 +2,6 @@
  *Object class used to do stuff with Options contracts
  * @author Cader.Hancock@gmail.com
  *
- *TODO
- *Write methods to make api pulls
- *"              " calculate greeks and IV
  **/
 package gq.cader.options;
 import java.util.*;
