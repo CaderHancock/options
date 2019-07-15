@@ -41,6 +41,7 @@ public class AssetFactory{
 		//TODO ooh baby thats a spicy regex to refactor *so fun*
 		return Pattern.compile(stockOptionRegex).matches(stockOptionRegex, s);
 	}
+	//helper method for incomplete regex
 	private boolean hasOnlyOnePeriod(String s){
 		int numDot = 0;
 		for(int i = 0; i < s.length(); i++){
