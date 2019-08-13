@@ -49,7 +49,6 @@ class AssetFactoryStockOptionTest{
 	//TODO Find more illegal cases 
 	//Test illegal symbol format
 	@Test
-	@Disabled //Until casting problem is solved. One thing at a time.
 	public void testValidateStockOptionSymbol(){
 		assertThrows(Exception.class, () -> {new AssetFactory("XXXXXXXXXXXXXXXX");});
 		assertThrows(Exception.class, () -> {new AssetFactory("APTI  190405X00185000");});
