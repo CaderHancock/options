@@ -1,6 +1,5 @@
 package gq.cader.options;
 
-import java.lang.IllegalArgumentException;
 
 class Position extends Asset{
 
